@@ -1,95 +1,50 @@
 const axios = require("axios");
 
-const baseApiUrl = async () => {
-        const base = await axios.get("https://raw.githubusercontent.com/mahmudx7/HINATA/main/baseApiUrl.json");
-        return base.data.mahmud;
-};
-
 module.exports = {
-        config: {
-                name: "gpt",
-                aliases: ["gpt4"],
-                version: "1.7",
-                author: "MahMUD",
-                countDown: 5,
-                role: 0,
-                description: {
-                        bn: "জিপিটি-৪ এআই এর সাথে চ্যাট করুন",
-                        en: "Chat with GPT-4 AI",
-                        vi: "Trò chuyện với GPT-4 AI"
-                },
-                category: "AI",
-                guide: {
-                        bn: '   {pn} <প্রশ্ন>: আপনার প্রশ্নটি লিখুন',
-                        en: '   {pn} <question>: Type your question',
-                        vi: '   {pn} <câu hỏi>: Nhập câu hỏi của bạn'
-                }
-        },
+	config: {
+		name: "youai",
+		aliases: ["you", "youchat", "ai", "gpt", "gemini"],
+		version: "1.0",
+		author: "nexo_here",
+		countDown: 5,
+		role: 0,
+		shortDescription: "Chat with You AI",
+		longDescription: "Send a message and get a friendly AI response with related questions",
+		category: "AI",
+		guide: {
+			en: "{pn} <your message>"
+		}
+	},
 
-        langs: {
-                bn: {
-                        noInput: "× বেবি, কিছু তো জিজ্ঞাসা করো!",
-                        error: "× সমস্যা হয়েছে: %1। প্রয়োজনে Contact Kakashi।"
-                },
-                en: {
-                        noInput: "× Baby, please ask something!",
-                        error: "× API error: %1. Contact Kakashi for help."
-                },
-                vi: {
-                        noInput: "× Cưng ơi, hãy hỏi điều gì đó!",
-                        error: "× Lỗi: %1. Liên hệ Kakashi để hỗ trợ."
-                }
-        },
+	langs: {
+		en: {
+			noInput: "⚠️ Please type something to ask.",
+			loading: "🧠 Thinking...",
+			error: "❌ Failed to get response from You AI."
+		}
+	},
 
-        onStart: async function ({ api, event, args, message, getLang, commandName }) {
-                const authorName = String.fromCharCode(77, 97, 104, 77, 85, 68);
-                if (this.config.author !== authorName) {
-                        return api.sendMessage("You are not authorized to change the author name.", event.threadID, event.messageID);
-                }
+	onStart: async function ({ message, args, getLang }) {
+		const input = args.join(" ");
+		if (!input) return message.reply(getLang("noInput"));
 
-                const prompt = args.join(" ");
-                if (!prompt) return message.reply(getLang("noInput"));
+		message.reply(getLang("loading"));
 
-                return this.handleGPT({ api, event, prompt, getLang, commandName });
-        },
+		try {
+			const apiUrl = `https://betadash-api-swordslush-production.up.railway.app/you?chat=${encodeURIComponent(input)}`;
+			const res = await axios.get(apiUrl);
 
-        onReply: async function ({ api, event, Reply, getLang, commandName }) {
-                if (Reply.author !== event.senderID) return;
-                const prompt = event.body;
-                if (!prompt) return;
+			const data = res.data;
+			if (!data || !data.response) return message.reply(getLang("error"));
 
-                return this.handleGPT({ api, event, prompt, getLang, commandName });
-        },
+			const related = data.relatedSearch?.length
+				? "\n\n💡 Related:\n" + data.relatedSearch.map((r, i) => `• ${r}`).join("\n")
+				: "";
 
-        handleGPT: async function ({ api, event, prompt, getLang, commandName }) {
-                try {
-                        api.setMessageReaction("⏳", event.messageID, () => {}, true);
-                        
-                        const baseUrl = await baseApiUrl();
-                        const response = await axios.post(`${baseUrl}/api/gpt`, {
-                                question: prompt,
-                                contents: [{ parts: [{ text: prompt }] }]
-                        }, {
-                                headers: { "Content-Type": "application/json" }
-                        });
-
-                        const replyText = response.data.response || "No response received.";
-                        api.setMessageReaction("✅", event.messageID, () => {}, true);
-
-                        return api.sendMessage(replyText, event.threadID, (error, info) => {
-                                if (!error) {
-                                        global.GoatBot.onReply.set(info.messageID, {
-                                                commandName,
-                                                author: event.senderID
-                                        });
-                                }
-                        }, event.messageID);
-
-                } catch (err) {
-                        console.error("GPT Error:", err);
-                        api.setMessageReaction("❌", event.messageID, () => {}, true);
-                        const errorMsg = err.response?.data?.error || err.message;
-                        return api.sendMessage(getLang("error", errorMsg), event.threadID, event.messageID);
-                }
-        }
+			return message.reply(`🧠 ${data.response}${related}`);
+		} catch (err) {
+			console.error("YouAI Error:", err.message || err);
+			return message.reply(getLang("error"));
+		}
+	}
 };

@@ -13,7 +13,7 @@ module.exports = {
     author: "MahMUD",
     countDown: 5,
     role: 0,
-    category: "Ai",
+    category: "AI",
     shortDescription: {
       en: "Get a random Mahmud quote"
     },
