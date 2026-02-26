@@ -11,7 +11,7 @@ module.exports = {
     role: 0,
     shortDescription: "Cute AI Baby Chatbot (Auto Teach + Typing)",
     longDescription: "Talk & Chat with Emotion — Auto teach enabled with typing effect.",
-    category: "box chat",
+    category: "Utility",
     guide: {
       en: "{p}baby [message]\n{p}baby teach [Question] - [Answer]\n{p}baby list"
     }
