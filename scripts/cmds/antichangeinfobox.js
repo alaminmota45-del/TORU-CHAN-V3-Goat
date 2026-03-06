@@ -16,7 +16,7 @@ module.exports = {
   config: {
     name: "antichangeinfobox",
     version: "10.2", // Updated version for fixes
-    author: "Hridoy ",
+    author: "Hridoy + Sabah + Full Nickname Fix + Additional Fixes",
     role: 1,
     category: "Admin",
     shortDescription: "Anti-Change Group Protection + Lock + Nickname Fix",
@@ -123,4 +123,119 @@ Reply with a number (1-7) or 'lock'`;
       return message.reply("❌ Please reply with a valid number (1-7) or 'lock'");
     }
 
-    const...
+    const key = keyMap[choice];
+    data[threadID][key] = !data[threadID][key];
+
+    // Backup when turning ON individual
+    if (data[threadID][key]) {
+      const threadInfo = await api.getThreadInfo(threadID).catch(() => null);
+      if (!threadInfo) return message.reply("⚠️ Cannot fetch group info");
+
+      try {
+        switch (key) {
+          case "name":
+            data[threadID].backup.name = threadInfo.threadName || "";
+            break;
+          case "avatar":
+            if (threadInfo.imageSrc) {
+              const img = await uploadImgbb(threadInfo.imageSrc).catch(() => null);
+              data[threadID].backup.avatar = img?.image?.url || "";
+            }
+            break;
+          case "nickname":
+            data[threadID].backup.nickname = { ...threadInfo.nicknames };
+            break;
+          case "theme":
+            data[threadID].backup.theme = threadInfo.color || "";
+            break;
+          case "emoji":
+            data[threadID].backup.emoji = threadInfo.emoji || "";
+            break;
+        }
+      } catch (e) { console.log("[Anti] Backup error:", e); }
+    }
+
+    fs.writeJsonSync(antiPath, data, { spaces: 2 });
+    await message.reply(`✅ ${data[threadID][key] ? "Enabled" : "Disabled"} → ${key.toUpperCase()} protection`);
+  },
+
+  onEvent: async function ({ api, event }) {
+    if (!event.logMessageType) return;
+    const { threadID, logMessageType, logMessageData, author } = event;
+    let data = fs.readJsonSync(antiPath);
+    if (!data[threadID] || !data[threadID].backup) return;
+
+    const config = data[threadID];
+    const backup = config.backup;
+    const botID = api.getCurrentUserID();
+    if (author === botID) return;
+
+    try {
+      switch (logMessageType) {
+        case "log:thread-name":
+          if (config.name && backup.name !== undefined) await api.setTitle(backup.name, threadID);
+          break;
+        case "log:thread-image":
+          if (config.avatar && backup.avatar) {
+            const stream = await getStreamFromURL(backup.avatar).catch(() => null);
+            if (stream) await api.changeGroupImage(stream, threadID);
+          }
+          break;
+        case "log:thread-color":
+          if (config.theme && backup.theme) await api.changeThreadColor(backup.theme, threadID);
+          break;
+        case "log:thread-icon":
+          if (config.emoji && backup.emoji) await api.changeThreadEmoji(backup.emoji, threadID).catch(() => {});
+          break;
+
+        // ===== FIXED NICKNAME =====
+        case "log:user-nickname":
+          if (!config.nickname) break;
+
+          const changedUserID = logMessageData.participant_id;
+          if (!changedUserID || changedUserID === botID) break;
+
+          const originalNick = backup.nickname[changedUserID] || "";
+          // If no backup for this user (e.g., new member), skip
+          if (originalNick === undefined) break;
+
+          // Small delay to let FB apply the change
+          await new Promise(r => setTimeout(r, 700));
+
+          // Re-fetch fresh thread info for accuracy
+          const freshThreadInfo = await api.getThreadInfo(threadID).catch(() => null);
+          if (!freshThreadInfo) break;
+
+          const currentNick = freshThreadInfo.nicknames[changedUserID] || "";
+
+          if (currentNick !== originalNick) {
+            console.log(`[AntiNickname] Reverting \( {changedUserID} → " \){originalNick}" (was: "${currentNick}")`);
+            await api.changeNickname(originalNick, threadID, changedUserID).catch(err => {
+              console.log("[AntiNickname] Revert failed:", err.message);
+            });
+          }
+          break;
+
+        case "log:subscribe":
+          if (config.join && logMessageData.addedParticipants?.length) {
+            await new Promise(r => setTimeout(r, 800));
+            for (const user of logMessageData.addedParticipants) {
+              await api.removeUserFromGroup(user.userFbId, threadID).catch(() => {});
+            }
+          }
+          break;
+        case "log:unsubscribe":
+          if (config.out) {
+            const leaverID = logMessageData.leftParticipantFbId;
+            if (leaverID) {
+              await new Promise(r => setTimeout(r, 1200));
+              await api.addUserToGroup(leaverID, threadID).catch(() => {});
+            }
+          }
+          break;
+      }
+    } catch (err) {
+      console.log("[Anti Error]", logMessageType, err.message);
+    }
+  }
+};

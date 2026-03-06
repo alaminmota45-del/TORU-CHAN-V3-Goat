@@ -4,7 +4,7 @@ module.exports.config = {
     hasPermssion: 0,
     credits: "Hridoy",
     description: "Send a giant frog-snake refresh message",
-    commandCategory: "fun",
+    commandCategory: "Admin",
     usages: "!refresh",
     cooldowns: 5
 };
