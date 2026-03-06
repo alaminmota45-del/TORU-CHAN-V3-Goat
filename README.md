@@ -1,121 +1,125 @@
-<div align="center">
-
-<img src="https://readme-typing-svg.herokuapp.com?font=Montserrat&weight=700&size=30&duration=3500&pause=700&color=00FFD1&center=true&vCenter=true&width=780&lines=🤖+𝗚𝗼𝗮𝘁+𝗕𝗼𝘁+𝗩2;⚡+𝗡𝗲𝘅𝘁-𝗚𝗲𝗻+𝗠𝗲𝘀𝘀𝗲𝗻𝗴𝗲𝗿+𝗕𝗼𝘁" />
-
-<p style="font-size:16px; color:#d6fdf6;">
-𝗕𝘂𝗶𝗹𝘁 & 𝗖𝘂𝘀𝘁𝗼𝗺𝗶𝘇𝗲𝗱 𝗯𝘆  
-<span style="color:#00ffd1; font-weight:600;">
-𝐌𝐨𝐡𝐚𝗺𝗺𝐚𝗱 𝐀𝐤𝐚𝐬𝗵
-</span>
+<p align="center">
+  <a href="####"><img src="http://readme-typing-svg.herokuapp.com?color=cyan&center=true&vCenter=true&multiline=false&lines=`✦ 𝙏𝙊𝙍𝙐 𝘾𝙃𝘼𝙉 ✦`" alt="">
 </p>
 
-<p style="font-size:14px; color:#b8fff3;">
-🚀 𝗙𝗮𝘀𝘁 • 🤖 𝗦𝗺𝗮𝗿𝘁 • 🛡️ 𝗥𝗲𝗹𝗶𝗮𝗯𝗹𝗲
+<br />
+<p align="center">
+    <a href="https://github.com/rxabdullah007/Maria-v3">
+        <img src="https://i.imgur.com/oEh5VEx.jpeg" alt="Logo">
+    </a>
+
+<h3 align="center">✦ 𝗞𝗔𝗞𝗔𝗦𝗛𝗜 𝗛𝗔𝗧𝗔𝗞𝗘 ✦</h3>
+
+<p align="center">
+    A simple Facebook Messenger Bot made by me (Kakashi).
 </p>
 
-</div>
+<p align="center">
+	<img alt="size" src="https://img.shields.io/github/repo-size/rxabdullah007/Maria-v3.svg?style=flat-square&label=size">
+	<img alt="code-version" src="https://img.shields.io/badge/dynamic/json?color=red&label=code%20version&prefix=v&query=%24.version&url=https%3A%2F%2Fraw.githubusercontent.com%2FmiraiPr0ject%2Fmiraiv2%2Fmaster%2Fpackage.json&style=flat-square">
+	<a href="https://github.com/rxabdullah007/Maria-v3/commits"><img alt="commits" src="https://img.shields.io/github/commit-activity/m/rxabdullah007/Maria-v3.svg?label=commit&style=flat-square"></a>
+    	<img alt="visitors" src="https://visitor-badge.laobi.icu/badge?page_id=rxabdullah007.Maria-v3">
+	
+</p>
+
+## License
+
+This project is licensed under the GNU General Public License v3.0 or later - see the [COPYING](./COPYING) file for details.
+
+
+
+
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
+
+## 🚀 Features
+
+-  Chat ai
+-  smart telking
+-  no prefix system
+-  etc
 
 ---
 
-## 🔥 𝗢𝗳𝗳𝗶𝗰𝗶𝗮𝗹 𝗦𝘂𝗽𝗽𝗼𝗿𝘁 𝗚𝗿𝗼𝘂𝗽
+##
 
-<div align="center">
+- Facebook Messenger chatbot functionality
+- Facebook login through `appstate.json` (cookies)
+- 150+ built-in commands
+- Easily customizable structure for developers
 
-<a href="https://m.me/j/AbaLu1kVZB8R-vLR/">
-<img src="https://img.shields.io/badge/Join%20Messenger%20Support%20Group-0084FF?style=for-the-badge&logo=messenger&logoColor=white"/>
-</a>
 
-💬 𝗚𝗲𝘁 𝗵𝗲𝗹𝗽 • 𝗨𝗽𝗱𝗮𝘁𝗲𝘀 • 𝗕𝘂𝗴 𝗳𝗶𝘅 • 𝗖𝗼𝗺𝗺𝘂𝗻𝗶𝘁𝘆 𝗰𝗵𝗮𝘁
+## 🧰 Requirements
 
-</div>
+- **Node.js version 18 or above (18+)**
+- Facebook `appstate.json` file (login cookie JSON
+- 
 
----
+## 🚀 Usage
 
-<div align="center">
-<img src="https://img.shields.io/badge/Version-v2.0-blue?style=for-the-badge&logo=github&labelColor=1F2428"/>
-<img src="https://img.shields.io/badge/Status-Online-brightgreen?style=for-the-badge&logo=messenger&labelColor=1F2428"/>
-<img src="https://img.shields.io/badge/License-MIT-red?style=for-the-badge&logo=opensourceinitiative&labelColor=1F2428"/>
-<img src="https://img.shields.io/badge/Language-Node.js-informational?style=for-the-badge&logo=nodedotjs&labelColor=1F2428"/>
-</div>
+- The bot will login to your Facebook account as soon as it is launched.
 
-<div align="center">
-<a href="https://github.com/ntkhang03/Goat-Bot-V2.git" target="_blank">
-  <img src="https://img.shields.io/badge/Original%20Credits-ntkhang03-blue?style=for-the-badge&logo=github&logoColor=white" alt="Credits"/>
-</a>
-<img src="https://img.shields.io/badge/Forked%20By-𝐌𝐨𝐡𝐚𝗺𝗺𝐚𝗱%20𝐀𝐤𝐚𝐬𝗵-green?style=for-the-badge" alt="Forked By"/>
-<img src="https://img.shields.io/badge/Usage-Educational%20%26%20Personal-orange?style=for-the-badge" alt="Usage"/>
-<img src="https://img.shields.io/badge/Disclaimer-Misuse%20At%20Your%20Risk-red?style=for-the-badge" alt="Disclaimer"/>
-</div>
+- It listens to Messenger chats in the background.
 
----
+- You can use available commands like:
 
-## 🌟 𝗔𝗯𝗼𝘂𝘁 𝗚𝗼𝗮𝘁 𝗕𝗼𝘁 𝗩2
+```
+.help
+.up
+.song [name]
+.info
 
-> 𝗚𝗼𝗮𝘁 𝗕𝗼𝘁 𝗩2 𝗶𝘀 a smart, reliable Facebook Messenger bot designed for automation, group management & entertainment.
+```
+# No Prefix system for admins
 
-💡 **This is a custom fork maintained by 𝐌𝐨𝐡𝐚𝗺𝗺𝐚𝗱 𝐀𝐤𝐚𝐬𝗵 for educational & personal use.**  
+```
+help
+up
+song [name]
+info
 
-🔗 **Original Repository / Credits:** [Goat Bot V2 by ntkhang03](https://github.com/ntkhang03/Goat-Bot-V2.git)
+```
 
----
-
-## 🛠 𝗙𝗲𝗮𝘁𝘂𝗿𝗲𝘀
-
-- 🚀 **Auto Reply & Smart Commands**  
-- 🎭 **Welcome / Leave System**  
-- 📦 **Custom Commands**  
-- 🕹️ **Admin Tools & Fun Features**  
-- 🌍 **Multi-language Support** (EN, BN)
+- The bot automatically tracks group and user data (if the database is configured).
 
 ---
 
-## ⚙️ 𝗙𝗿𝗮𝗺𝗲𝘄𝗼𝗿𝗸 𝗗𝗲𝘁𝗮𝗶𝗹𝘀
+## 🛠️ Tech Used
 
-- 📦 Based on: Goat Bot V2 Framework  
-- 📆 Version: 2.0 (Custom Edition)  
-- 🛠 Built for: Facebook Messenger  
-
----
-
-## 📹 𝗦𝗲𝘁𝘂𝗽 𝗧𝘂𝘁𝗼𝗿𝗶𝗮𝗹
-
-[![Watch Tutorial](https://img.youtube.com/vi/gPf_BFhQz_w/hqdefault.jpg)](https://youtu.be/gPf_BFhQz_w)
-
-Click thumbnail to watch full tutorial.
+- HTML5  
+- CSS3  
+- JavaScript (vanilla)
 
 ---
 
-## 🌐 𝗖𝗼𝗻𝗻𝗲𝗰𝘁 𝘄𝗶𝘁𝗵 𝗗𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗿
+## 👨‍💻 Owner Info
 
-[![Facebook](https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://facebook.com/akashx404)  
-[![Telegram](https://img.shields.io/badge/Telegram-0088CC?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/arakashiam)  
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/akashx404)  
-[![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/@akashbotdev)
-
----
-
-## ⚠️ 𝗗𝗶𝘀𝗰𝗹𝗮𝗶𝗺𝗲𝗿 & 𝗖𝗿𝗲𝗱𝗶𝘁
-
-This repository is a **custom fork** of the original Goat Bot V2 framework.  
-
-I do **NOT claim ownership** of the original project.  
-All original credits belong to the original developer: [ntkhang03](https://github.com/ntkhang03/Goat-Bot-V2.git).
-
-**Educational & personal use only.**  
-
-🚫 I am not responsible for misuse, platform bans, or violations.
+**Name:** Kakashi Hatake
+**Age:** 20+
+**Class:** Intermediate  
+**Lives in:** Jashore, Bangladesh 
+**Born in:** Satkhira 
+**Hobbies:** Grouping, Adventure 
 
 ---
 
-## 🔒 𝗙𝗼𝗿𝗸 𝗦𝗮𝗳𝗲𝗧𝘆 𝗥𝘂𝗹𝗲𝘀
 
-- ✅ Keep original credits  
-- ✅ Include README & LICENSE  
-- ✅ No keys, tokens, or spam scripts  
-- ✅ Do not evade bans with multiple accounts  
 
-Following these rules **reduces suspension risk to near-zero** ✅
+🔗 Messenger: [Message Kakashi](https://m.me/100048786044500)
 
 ---
 
-❤️ Respect open-source developers. Always keep credits
+## 📁 File Structure
+
+
+---
+
+## ✨ OWNAR PHOTO
+
+![Preview](https://i.imgur.com/oEh5VEx.jpeg)
+
+---
+
+## 💬 Thanks for visiting!
+
+Made with 💚 by **Kakashi**

@@ -12,16 +12,17 @@
   "antiInbox": false,
   "language": "en",
   "notesLanguage": "change language using ISO 639-1 code",
-  "nickNameBot": "—͞ 𝐐𝐔𝐄𝐄𝐍 🎀❤️‍🩹",
-  "prefix": "/",
+  "nickNameBot": "✦ 𝙏𝙊𝙍𝙐 𝘾𝙃𝘼𝙉 ✦",
+  "prefix": ".",
   "adminOnly": {
     "enable": false,
     "ignoreCommand": []
   },
   "adminBot": [
-    "100078049308655",
-    "55297214737376",
-    ""
+    "61587127028066",
+    "100061935903355",
+    "61587173630283",
+    "61564643127325"
   ],
   "reactUnsend": {
     "enable": true,
@@ -32,8 +33,8 @@
   "whiteListMode": {
     "enable": false,
     "whiteListIds": [
-      "100083039411474",
-      "100063840894133"
+      "61587127028066",
+      "100061935903355"
     ],
     "notes": "If enabled, only IDs in whiteListIds can use the bot."
   },
