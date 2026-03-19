@@ -94,8 +94,7 @@ handlerEvents.threadBanned=🛑 𝗕ᴀɴɴᴇᴅ! 𝗧ʜɪs ɢʀᴏᴜᴘ ᴄ�
 handlerEvents.onlyAdminBox=⚡ 𝗢ɴʟʏ ᴀᴅᴍɪɴs ᴄᴀɴ ᴜsᴇ ᴛʜɪs 𝗕ᴏᴛ ɪɴ ᴛʜɪs ɢʀᴏᴜᴘ.
 handlerEvents.onlyAdminBot=🔐 𝗕ᴏᴛ ᴀᴅᴍɪɴ ᴏɴʟʏ!\n» 𝗬ᴏᴜ ᴄᴀɴ'ᴛ ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ.
 handlerEvents.commandNotFound=🤖 𝗖ᴏᴍᴍᴀɴᴅ ɴᴏᴛ ғᴏᴜɴᴅ!\n» 𝗧ʏᴘᴇ %2help ᴛᴏ sᴇᴇ ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs 👾
-handlerEvents.commandNotFound2=    // ✅ CUSTOM strict prefix handler
-    commandNotFound2: (threadData, senderRole) => {
+handlerEvents.commandNotFound2=(threadData, senderRole) => {
         // senderRole = 1 বা 2 = admin, 0 = normal user
         if(senderRole === 1 || senderRole === 2) { 
             return "Yes bbz✨"; // admin reply
